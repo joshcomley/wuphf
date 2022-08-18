@@ -17,7 +17,7 @@ public partial class AuditLog : ContentPage
         Task.Run(async () =>
         {
             var api = new WuphfApi(new HttpClient());
-            var audits = (await api.AuditLogs_AuditLog_ListAuditLogAsync(null, null, null, null, null, new List<Anonymous>() { Anonymous.DateCreated_desc } , null, null)).Value;
+            var audits = (await api.AuditLogs_AuditLog_ListAuditLogAsync(null, null, null, null, null, new List<Anonymous>() { Anonymous.DateCreated_desc } , null, new List<Anonymous3>() { Anonymous3.Server })).Value;
             Model.AuditLogs = audits;
             this.Update();
         });
