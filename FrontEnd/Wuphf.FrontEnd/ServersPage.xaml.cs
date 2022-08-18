@@ -44,12 +44,17 @@ public partial class ServersPage : ContentPage
         Task.Run(async () =>
         {
             await ServerNotifications.StartAsync();
-            var api = new WuphfApi(new HttpClient());
-
-            var servers = (await api.Servers_Server_ListServerAsync(null, null, null, null, null, null, null, null)).Value;
-            Model.Servers = servers.ToList();
-            this.Update();
+            await UpdateDataAsync(Model);
         });
+    }
+
+    private async Task UpdateDataAsync(ServersViewModel Model)
+    {
+        var api = new WuphfApi(new HttpClient());
+
+        var servers = (await api.Servers_Server_ListServerAsync(null, null, null, $"contains(Name,'{Model.ServerSearch}')", null, null, null, null)).Value;
+        Model.Servers = servers.ToList();
+        this.Update();
     }
 
     public ISettings Settings => ServiceProvider.GetService<ISettings>();
@@ -58,6 +63,16 @@ public partial class ServersPage : ContentPage
     {
         Settings.UserName = e.NewTextValue;
     }
+
+    private void ServerNameChanged(object sender, TextChangedEventArgs e)
+    {
+        var model = Model;
+        Task.Run(async () =>
+        {
+            await UpdateDataAsync(model);
+        });
+    }
+
 
     private void OnTakeClick(object sender, EventArgs e)
     {
@@ -95,6 +110,7 @@ public partial class ServersPage : ContentPage
 
 public class ServersViewModel
 {
+    public string ServerSearch { get; set; }
     public string UserName { get; set; }
     public List<Server> Servers { get; set; }
 }
