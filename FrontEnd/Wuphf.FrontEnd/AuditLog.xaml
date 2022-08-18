@@ -32,7 +32,7 @@
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="1" Text="{Binding Server.Name}" HorizontalOptions="Center" VerticalOptions="Center" />
                             <Label Grid.Row="1" Grid.Column="1" Text="{Binding DateCreated, StringFormat='{0:dd/MM/yyyy HH:mm:ss}'}" HorizontalOptions="Center" VerticalOptions="Center" />
-                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding ToUserName}" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding ToUserValue}" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

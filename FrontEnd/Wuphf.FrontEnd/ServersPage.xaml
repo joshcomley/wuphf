@@ -9,7 +9,12 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />-->
         <Button Text="Audit" Clicked="OnAuditClick" />
-        <Entry Text="{Binding UserName}" Placeholder="Your name" TextChanged="UserNameChanged" />
+        <Entry Text="{Binding UserName}" Placeholder="Your name" TextChanged="UserNameChanged"></Entry>
+        <TableView>
+            <TableSection>
+                <EntryCell Label="Search Server" Placeholder="Server Name"></EntryCell>
+            </TableSection>
+        </TableView>
         <Grid StyleClass="table-header">
             <Grid.RowDefinitions>
                 <RowDefinition />
