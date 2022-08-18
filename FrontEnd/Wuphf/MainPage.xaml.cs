@@ -1,4 +1,7 @@
-﻿namespace Wuphf;
+﻿using Microsoft.Extensions.DependencyInjection;
+using WeatherTwentyOne.Services;
+
+namespace Wuphf;
 
 public partial class MainPage : ContentPage
 {
@@ -7,9 +10,10 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+        SetupTrayIcon();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+    private void OnCounterClicked(object sender, EventArgs e)
 	{
 		count++;
 
@@ -20,5 +24,18 @@ public partial class MainPage : ContentPage
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
+
+    private void SetupTrayIcon()
+    {
+        var trayService = ServiceProvider.GetService<ITrayService>();
+
+        if (trayService != null)
+        {
+            trayService.Initialize();
+            trayService.ClickHandler = () =>
+                ServiceProvider.GetService<INotificationService>()
+                    ?.ShowNotification("Hello Build! 😻 From .NET MAUI", "How's your weather?  It's sunny where we are 🌞");
+        }
+    }
 }
 
