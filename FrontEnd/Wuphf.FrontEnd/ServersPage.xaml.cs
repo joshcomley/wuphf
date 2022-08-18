@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using Wuphf.Api.Client;
 
 namespace Wuphf;
@@ -10,6 +9,11 @@ public partial class ServersPage : ContentPage
     {
         InitializeComponent();
         BindingContext = new ServersViewModel();
+    }
+
+    public async void OnAuditClick(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AuditLog());
     }
 
     protected override void OnAppearing()

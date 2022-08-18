@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wuphf.AuditLog"
+             Title="Audit">
+    <VerticalStackLayout>
+        <ListView ItemsSource="{Binding AuditLogs}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="1" Text="{Binding ServerId}" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding DateCreated}" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding ToUserName}" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

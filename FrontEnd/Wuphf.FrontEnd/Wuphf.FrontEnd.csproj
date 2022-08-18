@@ -68,6 +68,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="AuditLog.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AuditLog.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ServersPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
