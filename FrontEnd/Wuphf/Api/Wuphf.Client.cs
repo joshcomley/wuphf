@@ -21,6 +21,52 @@ namespace Wuphf.Api.Client
     public partial interface IWuphfApi
     {
         /// <summary>
+        /// Get entities from AuditLogs
+        /// </summary>
+        /// <param name="top">Show only the first n items</param>
+        /// <param name="skip">Skip the first n items</param>
+        /// <param name="search">Search items by search phrases</param>
+        /// <param name="filter">Filter items by property values</param>
+        /// <param name="count">Include count of items</param>
+        /// <param name="orderby">Order items by property values</param>
+        /// <param name="select">Select properties to be returned</param>
+        /// <param name="expand">Expand related entities</param>
+        /// <returns>Retrieved collection</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AuditLogCollectionResponse> AuditLogs_AuditLog_ListAuditLogAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous> orderby, System.Collections.Generic.IEnumerable<Anonymous2> select, System.Collections.Generic.IEnumerable<Anonymous3> expand);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get entities from AuditLogs
+        /// </summary>
+        /// <param name="top">Show only the first n items</param>
+        /// <param name="skip">Skip the first n items</param>
+        /// <param name="search">Search items by search phrases</param>
+        /// <param name="filter">Filter items by property values</param>
+        /// <param name="count">Include count of items</param>
+        /// <param name="orderby">Order items by property values</param>
+        /// <param name="select">Select properties to be returned</param>
+        /// <param name="expand">Expand related entities</param>
+        /// <returns>Retrieved collection</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AuditLogCollectionResponse> AuditLogs_AuditLog_ListAuditLogAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous> orderby, System.Collections.Generic.IEnumerable<Anonymous2> select, System.Collections.Generic.IEnumerable<Anonymous3> expand, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Get the number of the resource
+        /// </summary>
+        /// <returns>The count of the resource</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<int> Get_Count_AuditLogsF367Async();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get the number of the resource
+        /// </summary>
+        /// <returns>The count of the resource</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<int> Get_Count_AuditLogsF367Async(System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
         /// Get entities from Servers
         /// </summary>
         /// <param name="top">Show only the first n items</param>
@@ -33,7 +79,7 @@ namespace Wuphf.Api.Client
         /// <param name="expand">Expand related entities</param>
         /// <returns>Retrieved collection</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServerCollectionResponse> Servers_Server_ListServerAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous> orderby, System.Collections.Generic.IEnumerable<Anonymous2> select, System.Collections.Generic.IEnumerable<Anonymous3> expand);
+        System.Threading.Tasks.Task<ServerCollectionResponse> Servers_Server_ListServerAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous4> orderby, System.Collections.Generic.IEnumerable<Anonymous5> select, System.Collections.Generic.IEnumerable<Anonymous6> expand);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -49,7 +95,7 @@ namespace Wuphf.Api.Client
         /// <param name="expand">Expand related entities</param>
         /// <returns>Retrieved collection</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ServerCollectionResponse> Servers_Server_ListServerAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous> orderby, System.Collections.Generic.IEnumerable<Anonymous2> select, System.Collections.Generic.IEnumerable<Anonymous3> expand, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ServerCollectionResponse> Servers_Server_ListServerAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous4> orderby, System.Collections.Generic.IEnumerable<Anonymous5> select, System.Collections.Generic.IEnumerable<Anonymous6> expand, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Get the number of the resource
@@ -118,6 +164,220 @@ namespace Wuphf.Api.Client
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
 
         /// <summary>
+        /// Get entities from AuditLogs
+        /// </summary>
+        /// <param name="top">Show only the first n items</param>
+        /// <param name="skip">Skip the first n items</param>
+        /// <param name="search">Search items by search phrases</param>
+        /// <param name="filter">Filter items by property values</param>
+        /// <param name="count">Include count of items</param>
+        /// <param name="orderby">Order items by property values</param>
+        /// <param name="select">Select properties to be returned</param>
+        /// <param name="expand">Expand related entities</param>
+        /// <returns>Retrieved collection</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<AuditLogCollectionResponse> AuditLogs_AuditLog_ListAuditLogAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous> orderby, System.Collections.Generic.IEnumerable<Anonymous2> select, System.Collections.Generic.IEnumerable<Anonymous3> expand)
+        {
+            return AuditLogs_AuditLog_ListAuditLogAsync(top, skip, search, filter, count, orderby, select, expand, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get entities from AuditLogs
+        /// </summary>
+        /// <param name="top">Show only the first n items</param>
+        /// <param name="skip">Skip the first n items</param>
+        /// <param name="search">Search items by search phrases</param>
+        /// <param name="filter">Filter items by property values</param>
+        /// <param name="count">Include count of items</param>
+        /// <param name="orderby">Order items by property values</param>
+        /// <param name="select">Select properties to be returned</param>
+        /// <param name="expand">Expand related entities</param>
+        /// <returns>Retrieved collection</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<AuditLogCollectionResponse> AuditLogs_AuditLog_ListAuditLogAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous> orderby, System.Collections.Generic.IEnumerable<Anonymous2> select, System.Collections.Generic.IEnumerable<Anonymous3> expand, System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/AuditLogs?");
+            if (top != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$top") + "=").Append(System.Uri.EscapeDataString(ConvertToString(top, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (skip != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$skip") + "=").Append(System.Uri.EscapeDataString(ConvertToString(skip, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (search != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$search") + "=").Append(System.Uri.EscapeDataString(ConvertToString(search, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (filter != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$filter") + "=").Append(System.Uri.EscapeDataString(ConvertToString(filter, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (count != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("$count") + "=").Append(System.Uri.EscapeDataString(ConvertToString(count, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (orderby != null)
+            {
+                foreach (var item_ in orderby) { urlBuilder_.Append(System.Uri.EscapeDataString("$orderby") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            }
+            if (select != null)
+            {
+                foreach (var item_ in select) { urlBuilder_.Append(System.Uri.EscapeDataString("$select") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            }
+            if (expand != null)
+            {
+                foreach (var item_ in expand) { urlBuilder_.Append(System.Uri.EscapeDataString("$expand") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            }
+            urlBuilder_.Length--;
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<AuditLogCollectionResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ODataError>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ODataError>("error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Get the number of the resource
+        /// </summary>
+        /// <returns>The count of the resource</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task<int> Get_Count_AuditLogsF367Async()
+        {
+            return Get_Count_AuditLogsF367Async(System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Get the number of the resource
+        /// </summary>
+        /// <returns>The count of the resource</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task<int> Get_Count_AuditLogsF367Async(System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/AuditLogs/$count");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("text/plain"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            var result_ = (int)System.Convert.ChangeType(responseData_, typeof(int));
+                            return result_;
+                        }
+                        else
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ODataError>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            throw new ApiException<ODataError>("error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <summary>
         /// Get entities from Servers
         /// </summary>
         /// <param name="top">Show only the first n items</param>
@@ -130,7 +390,7 @@ namespace Wuphf.Api.Client
         /// <param name="expand">Expand related entities</param>
         /// <returns>Retrieved collection</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<ServerCollectionResponse> Servers_Server_ListServerAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous> orderby, System.Collections.Generic.IEnumerable<Anonymous2> select, System.Collections.Generic.IEnumerable<Anonymous3> expand)
+        public virtual System.Threading.Tasks.Task<ServerCollectionResponse> Servers_Server_ListServerAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous4> orderby, System.Collections.Generic.IEnumerable<Anonymous5> select, System.Collections.Generic.IEnumerable<Anonymous6> expand)
         {
             return Servers_Server_ListServerAsync(top, skip, search, filter, count, orderby, select, expand, System.Threading.CancellationToken.None);
         }
@@ -149,7 +409,7 @@ namespace Wuphf.Api.Client
         /// <param name="expand">Expand related entities</param>
         /// <returns>Retrieved collection</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<ServerCollectionResponse> Servers_Server_ListServerAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous> orderby, System.Collections.Generic.IEnumerable<Anonymous2> select, System.Collections.Generic.IEnumerable<Anonymous3> expand, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ServerCollectionResponse> Servers_Server_ListServerAsync(int? top, int? skip, string search, string filter, bool? count, System.Collections.Generic.IEnumerable<Anonymous4> orderby, System.Collections.Generic.IEnumerable<Anonymous5> select, System.Collections.Generic.IEnumerable<Anonymous6> expand, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Servers?");
@@ -525,17 +785,50 @@ namespace Wuphf.Api.Client
         [System.ComponentModel.DataAnnotations.Range(-2147483648, 2147483647)]
         public int Id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("ServerName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(50)]
-        public string ServerName { get; set; }
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("Username", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [System.ComponentModel.DataAnnotations.StringLength(50)]
-        public string Username { get; set; }
+        [Newtonsoft.Json.JsonProperty("UserNameLastAcquired", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserNameLastAcquired { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("LastAcquired", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("DateLastAcquired", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.RegularExpression(@"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$")]
-        public System.DateTimeOffset? LastAcquired { get; set; }
+        public System.DateTimeOffset? DateLastAcquired { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AuditLog
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(-2147483648, 2147483647)]
+        public int Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("ServerId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(-2147483648, 2147483647)]
+        public int ServerId { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("FromUserName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FromUserName { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("ToUserName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ToUserName { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("DateCreated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.RegularExpression(@"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$")]
+        public System.DateTimeOffset DateCreated { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("Server", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Server Server { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -658,6 +951,23 @@ namespace Wuphf.Api.Client
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AuditLogCollectionResponse
+    {
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AuditLog> Value { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ReferenceUpdate
     {
         [Newtonsoft.Json.JsonProperty("@odata.id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -704,23 +1014,29 @@ namespace Wuphf.Api.Client
         [System.Runtime.Serialization.EnumMember(Value = @"Id desc")]
         Id_desc = 1,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"ServerName")]
-        ServerName = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"ServerId")]
+        ServerId = 2,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"ServerName desc")]
-        ServerName_desc = 3,
+        [System.Runtime.Serialization.EnumMember(Value = @"ServerId desc")]
+        ServerId_desc = 3,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"Username")]
-        Username = 4,
+        [System.Runtime.Serialization.EnumMember(Value = @"FromUserName")]
+        FromUserName = 4,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"Username desc")]
-        Username_desc = 5,
+        [System.Runtime.Serialization.EnumMember(Value = @"FromUserName desc")]
+        FromUserName_desc = 5,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"LastAcquired")]
-        LastAcquired = 6,
+        [System.Runtime.Serialization.EnumMember(Value = @"ToUserName")]
+        ToUserName = 6,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"LastAcquired desc")]
-        LastAcquired_desc = 7,
+        [System.Runtime.Serialization.EnumMember(Value = @"ToUserName desc")]
+        ToUserName_desc = 7,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"DateCreated")]
+        DateCreated = 8,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"DateCreated desc")]
+        DateCreated_desc = 9,
 
     }
 
@@ -731,19 +1047,85 @@ namespace Wuphf.Api.Client
         [System.Runtime.Serialization.EnumMember(Value = @"Id")]
         Id = 0,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"ServerName")]
-        ServerName = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"ServerId")]
+        ServerId = 1,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"Username")]
-        Username = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"FromUserName")]
+        FromUserName = 2,
 
-        [System.Runtime.Serialization.EnumMember(Value = @"LastAcquired")]
-        LastAcquired = 3,
+        [System.Runtime.Serialization.EnumMember(Value = @"ToUserName")]
+        ToUserName = 3,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"DateCreated")]
+        DateCreated = 4,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Server")]
+        Server = 5,
 
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public enum Anonymous3
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"*")]
+        _ = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Server")]
+        Server = 1,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum Anonymous4
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Id")]
+        Id = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Id desc")]
+        Id_desc = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Name")]
+        Name = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Name desc")]
+        Name_desc = 3,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"UserNameLastAcquired")]
+        UserNameLastAcquired = 4,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"UserNameLastAcquired desc")]
+        UserNameLastAcquired_desc = 5,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"DateLastAcquired")]
+        DateLastAcquired = 6,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"DateLastAcquired desc")]
+        DateLastAcquired_desc = 7,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum Anonymous5
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Id")]
+        Id = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Name")]
+        Name = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"UserNameLastAcquired")]
+        UserNameLastAcquired = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"DateLastAcquired")]
+        DateLastAcquired = 3,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum Anonymous6
     {
 
         [System.Runtime.Serialization.EnumMember(Value = @"*")]
