@@ -95,17 +95,26 @@ public partial class ServersPage : ContentPage
         }
     }
 
-    private void OnReleaseClick(object sender, EventArgs e)
+    private async void OnReleaseClick(object sender, EventArgs e)
     {
         var server = (sender as Button).CommandParameter as Server;
-        Task.Run(async () =>
+        var canContinue = server.UserNameLastAcquired?.Trim() == Settings.UserName?.Trim();
+        if (!canContinue)
         {
-            var api = new WuphfApi(new HttpClient());
-            await api.Servers_Server_TakeAsync(server.Id, new Body
+            canContinue = await DisplayAlert("You sure, guv?", @$"This is taken by ""{server.UserNameLastAcquired}"", are you sure you want to release it?", "Yes", "No");
+        }
+
+        if (canContinue)
+        {
+            Task.Run(async () =>
             {
-                UserName = ""
+                var api = new WuphfApi(new HttpClient());
+                await api.Servers_Server_TakeAsync(server.Id, new Body
+                {
+                    UserName = ""
+                });
             });
-        });
+        }
     }
 }
 
