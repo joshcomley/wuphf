@@ -12,6 +12,11 @@ public partial class ServersPage : ContentPage
         BindingContext = new ServersViewModel();
     }
 
+    public async void OnAuditClick(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AuditLog());
+    }
+
     protected override void OnAppearing()
     {
         base.OnAppearing();
