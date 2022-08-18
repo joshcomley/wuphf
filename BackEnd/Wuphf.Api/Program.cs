@@ -14,6 +14,7 @@ builder.Services.AddControllers().AddOData(
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(_ => _.UseSqlServer(builder.Configuration.GetConnectionString("DbContext")));
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -41,6 +42,9 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
+app.MapControllers();
+
+app.MapHub<ApiHub>("/hub");
 
 using var scope = app.Services.CreateScope();
 await scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.MigrateAsync();

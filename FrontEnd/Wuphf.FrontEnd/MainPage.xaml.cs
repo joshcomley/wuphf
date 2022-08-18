@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.DependencyInjection;
 using WeatherTwentyOne.Services;
 
 namespace Wuphf;
@@ -11,7 +12,30 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
         SetupTrayIcon();
-	}
+        Connection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:5001/hub")
+            .Build();
+
+    }
+
+    public HubConnection Connection { get; set; }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        Connection.On("update", new[]{ typeof(string) }, (message) =>
+        {
+            this.Dispatcher.Dispatch(() =>
+            {
+                DisplayAlert("Hello", message[0].ToString(), "OK");
+            });
+            return Task.CompletedTask;
+        }); 
+        Task.Run(async () =>
+        {
+            await Connection.StartAsync();
+        });
+    }
 
     private async void OnCounterClicked(object sender, EventArgs e)
     {

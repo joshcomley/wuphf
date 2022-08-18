@@ -11,5 +11,4 @@ public static class ContentPageExtensions
             page.BindingContext = c;
         });
     }
-
 }
