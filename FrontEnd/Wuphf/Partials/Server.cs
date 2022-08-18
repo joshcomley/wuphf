@@ -2,6 +2,7 @@
 {
     public partial class Server
     {
-        public bool IsOccupied => string.IsNullOrEmpty(UserNameLastAcquired);
+        public bool IsTaken => !IsAvailable;
+        public bool IsAvailable => string.IsNullOrEmpty(UserNameLastAcquired);
     }
 }

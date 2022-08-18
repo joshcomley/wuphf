@@ -28,7 +28,6 @@
             <Label Grid.Row="1" Grid.Column="1" Text="Taken" HorizontalOptions="Center" VerticalOptions="Center" />
             <Label Grid.Row="1" Grid.Column="2" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
             <Label Grid.Row="1" Grid.Column="3" Text="" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label Grid.Row="1" Grid.Column="4" Text="" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
         <ListView ItemsSource="{Binding Servers}">
             <ListView.ItemTemplate>
@@ -48,8 +47,8 @@
                             <Label Grid.Row="1" Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center" />
                             <Switch Grid.Row="1" Grid.Column="1" OnColor="Green" ThumbColor="Grey" HorizontalOptions="Center" VerticalOptions="Center" />
                             <Label Grid.Row="1" Grid.Column="2" Text="{Binding UserNameLastAcquired}" HorizontalOptions="Center" VerticalOptions="Center" />
-                            <Button Grid.Row="1" Grid.Column="3" Text="Take" Clicked="OnTakeClick" CommandParameter="{Binding .}" />
-                            <Button Grid.Row="1" Grid.Column="4" Text="Release" Clicked="OnReleaseClick" CommandParameter="{Binding .}" />
+                            <Button Grid.Row="1" Grid.Column="3" IsVisible="{Binding IsAvailable}" Text="Take" Clicked="OnTakeClick" CommandParameter="{Binding .}" />
+                            <Button Grid.Row="1" Grid.Column="3" IsVisible="{Binding IsTaken}" Text="Release" Clicked="OnReleaseClick" CommandParameter="{Binding .}" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

@@ -87,7 +87,7 @@ public partial class ServersPage : ContentPage
             var api = new WuphfApi(new HttpClient());
             await api.Servers_Server_TakeAsync(server.Id, new Body
             {
-                UserName = null
+                UserName = ""
             });
         });
     }
