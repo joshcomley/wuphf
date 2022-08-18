@@ -13,9 +13,12 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="1" Text="Server Name" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label Grid.Row="1" Grid.Column="1" Text="Date Taken" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label Grid.Row="1" Grid.Column="2" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
+            <BoxView Grid.Row="1" Grid.Column="0" Color="SteelBlue" />
+            <BoxView Grid.Row="1" Grid.Column="1" Color="SteelBlue" />
+            <BoxView Grid.Row="1" Grid.Column="2" Color="SteelBlue" />
+            <Label Grid.Row="1" FontAttributes="Bold" Text="Server Name" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Grid.Row="1" FontAttributes="Bold" Grid.Column="1" Text="Date Taken" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Grid.Row="1" FontAttributes="Bold" Grid.Column="2" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
         <ListView ItemsSource="{Binding AuditLogs}">
             <ListView.ItemTemplate>
