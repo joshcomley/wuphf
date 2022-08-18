@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
+using Wuphf.Data.Models;
 
 namespace Wuphf.Api.Controllers;
 
-public class ServersController : ODataControllerBase<Server1>
+public class ServersController : ODataControllerBase<Server>
 {
     
 }
