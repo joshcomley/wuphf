@@ -15,19 +15,19 @@ public partial class MainPage : ContentPage
 
     private async void OnCounterClicked(object sender, EventArgs e)
     {
-        var client = new Api.Client.WuphfApi(new HttpClient());
-        var servers = await client.Servers_Server_ListServerAsync(3, null, search: null, filter: null, null, orderby: null, select: null, expand: null);
+        //var client = new Api.Client.WuphfApi(new HttpClient());
+        //var servers = await client.Servers_Server_ListServerAsync(3, null, search: null, filter: null, null, orderby: null, select: null, expand: null);
 
-        //await Navigation.PushAsync(new ServersPage());
-		//count++;
+        await Navigation.PushAsync(new ServersPage());
+        //count++;
 
-		//if (count == 1)
-		//	CounterBtn.Text = $"Clicked {count} time";
-		//else
-		//	CounterBtn.Text = $"Clicked {count} times";
+        //if (count == 1)
+        //	CounterBtn.Text = $"Clicked {count} time";
+        //else
+        //	CounterBtn.Text = $"Clicked {count} times";
 
-		//SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        //SemanticScreenReader.Announce(CounterBtn.Text);
+    }
 
     private void SetupTrayIcon()
     {
