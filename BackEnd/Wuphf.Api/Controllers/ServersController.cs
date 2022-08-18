@@ -37,7 +37,6 @@ public class ServersController : ODataControllerBase<Server>
         server.DateLastAcquired = now;
         server.UserNameLastAcquired = userName;
         await Db.SaveChangesAsync();
-        var json = JsonSerializer.Serialize(server);
         await Hub.Clients.All.SendCoreAsync("update", new object?[] {server});
         return Ok();
     }
