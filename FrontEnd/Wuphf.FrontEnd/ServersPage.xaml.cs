@@ -14,26 +14,11 @@ public partial class ServersPage : ContentPage
         {
             var api = new WuphfApi(new HttpClient());
             var servers = (await api.Servers_Server_ListServerAsync(null, null, null, null, null, null, null, null)).Value;
-            //Model.Servers.Clear();
-            //foreach (var server in servers)
-            //{
-            //    Model.Servers.Add(server);
-            //}
             Dispatcher.Dispatch(() =>
             {
                 BindingContext = new ServersViewModel
                 {
-                    Servers = new ObservableCollection<Server>(new List<Server>
-                    {
-                        new Server
-                        {
-                            Name = "Test 1"
-                        },
-                        new Server
-                        {
-                            Name = "Test 2"
-                        }
-                    })
+                    Servers = new ObservableCollection<Server>(servers.ToList()) 
                 };
             });
         });
