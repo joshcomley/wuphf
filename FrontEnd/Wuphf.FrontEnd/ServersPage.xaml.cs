@@ -10,27 +10,22 @@ public partial class ServersPage : ContentPage
     {
         InitializeComponent();
         BindingContext = new ServersViewModel();
-        Task.Run(async () =>
-        {
-            var api = new WuphfApi(new HttpClient());
-            var servers = (await api.Servers_Server_ListServerAsync(null, null, null, null, null, null, null, null)).Value;
-            Dispatcher.Dispatch(() =>
-            {
-                BindingContext = new ServersViewModel
-                {
-                    Servers = new ObservableCollection<Server>(servers.ToList()) 
-                };
-            });
-        });
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        Task.Run(async () =>
+        {
+            var api = new WuphfApi(new HttpClient());
+            var servers = (await api.Servers_Server_ListServerAsync(null, null, null, null, null, null, null, null)).Value;
+            Model.Servers = servers;
+            this.Update();
+        });
     }
 }
 
 public class ServersViewModel
 {
-    public ObservableCollection<Server> Servers { get; set; } = new();
+    public ICollection<Server> Servers { get; set; }
 }

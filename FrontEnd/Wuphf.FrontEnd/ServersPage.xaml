@@ -22,11 +22,12 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="1"
-                                   Text="{Binding Name}"
-                                   Style="{DynamicResource TitleStyle}" />
+                                   Text="{Binding Name}" 
+                                   />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>        </ListView>
+            </ListView.ItemTemplate>
+        </ListView>
     </VerticalStackLayout>
 </ContentPage>
