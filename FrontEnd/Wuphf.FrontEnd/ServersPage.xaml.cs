@@ -62,6 +62,7 @@ public partial class ServersPage : ContentPage
     private void UserNameChanged(object sender, TextChangedEventArgs e)
     {
         Settings.UserName = e.NewTextValue;
+        Model.UserName = e.NewTextValue;
     }
 
     private void ServerNameChanged(object sender, TextChangedEventArgs e)
