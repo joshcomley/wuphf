@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:client="clr-namespace:Wuphf.Api.Client;assembly=Wuphf"
              x:Class="Wuphf.ServersPage"
-             Title="Servers">
+             Title="Servers"
+             x:Name="ServersPageXaml">
+    <ContentPage.Resources>
+        <client:BgColorConverter x:Key="bgColorConverter" UserName="{Binding Source={Reference ServersPageXaml}, Path=UserName}" />
+    </ContentPage.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -31,7 +36,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid BackgroundColor="{Binding BgColor}">
+                            <Grid BackgroundColor="{Binding Self, Converter={StaticResource bgColorConverter}, ConverterParameter={Binding UserName}}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
@@ -43,7 +48,7 @@
                                 <Label Grid.Row="1" Grid.Column="0" Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center" />
                                 <Label Grid.Row="1" Grid.Column="1" Text="{Binding UserNameLastAcquired}" HorizontalOptions="Center" VerticalOptions="Center" />
                                 <Button Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsAvailable}" BackgroundColor="#00455F" TextColor="White" Text="Take" Clicked="OnTakeClick" CommandParameter="{Binding .}" />
-                                <Button Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsTaken}" BackgroundColor="{StaticResource Secondary}}"  TextColor="Black" Text="Release" Clicked="OnReleaseClick" CommandParameter="{Binding .}" />
+                                <Button Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsTaken}" BackgroundColor="{StaticResource Secondary}"  TextColor="Black" Text="Release" Clicked="OnReleaseClick" CommandParameter="{Binding .}" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

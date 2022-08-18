@@ -120,6 +120,8 @@ public partial class ServersPage : ContentPage
             });
         }
     }
+
+    public string UserName => ServiceProvider.GetService<ISettings>().UserName;
 }
 
 public class ServersViewModel : INotifyPropertyChanged
