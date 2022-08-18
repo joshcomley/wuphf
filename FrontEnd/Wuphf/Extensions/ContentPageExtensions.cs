@@ -6,9 +6,9 @@ public static class ContentPageExtensions
     {
         page.Dispatcher.Dispatch(() =>
         {
-            var c = page.BindingContext;
-            page.BindingContext = null;
-            page.BindingContext = c;
+            //var c = page.BindingContext;
+            //page.BindingContext = null;
+            //page.BindingContext = c;
         });
     }
 }

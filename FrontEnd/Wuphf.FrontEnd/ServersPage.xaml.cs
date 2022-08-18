@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Wuphf.Api.Client;
 using Wuphf.Services;
 
@@ -26,6 +28,8 @@ public partial class ServersPage : ContentPage
                 var index = Model.Servers.IndexOf(firstOrDefault);
                 Model.Servers[index] = _;
             }
+
+            Model.Servers = Model.Servers.ToList();
             this.Update();
         });
     }
@@ -47,12 +51,11 @@ public partial class ServersPage : ContentPage
         });
     }
 
-    private async Task UpdateDataAsync(ServersViewModel Model)
+    private async Task UpdateDataAsync(ServersViewModel model)
     {
         var api = new WuphfApi(new HttpClient());
-
-        var servers = (await api.Servers_Server_ListServerAsync(null, null, null, $"contains(Name,'{Model.ServerSearch}')", null, null, null, null)).Value;
-        Model.Servers = servers.ToList();
+        var servers = (await api.Servers_Server_ListServerAsync(null, null, null, $"contains(Name,'{model.ServerSearch}')", null, null, null, null)).Value;
+        model.Servers = servers.ToList();
         this.Update();
     }
 
@@ -108,9 +111,35 @@ public partial class ServersPage : ContentPage
     }
 }
 
-public class ServersViewModel
+public class ServersViewModel : INotifyPropertyChanged
 {
+    private List<Server> _servers;
     public string ServerSearch { get; set; }
     public string UserName { get; set; }
-    public List<Server> Servers { get; set; }
+
+    public List<Server> Servers
+    {
+        get => _servers;
+        set
+        {
+            if (Equals(value, _servers)) return;
+            _servers = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        field = value;
+        OnPropertyChanged(propertyName);
+        return true;
+    }
 }
