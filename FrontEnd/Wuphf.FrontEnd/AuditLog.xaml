@@ -2,24 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Wuphf.AuditLog"
-             Title="AuditLog">
+             Title="Audit">
     <VerticalStackLayout>
         <ListView ItemsSource="{Binding AuditLogs}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Padding="10">
+                        <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="1"
-                                   Text="{Binding ToUserName}" 
-                                   />
+                            <Label Grid.Row="1" Text="{Binding ServerId}" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding DateCreated}" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding ToUserName}" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
