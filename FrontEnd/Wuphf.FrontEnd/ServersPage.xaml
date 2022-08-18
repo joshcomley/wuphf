@@ -31,7 +31,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
+                            <Grid BackgroundColor="{Binding BgColor}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
@@ -43,7 +43,7 @@
                                 <Label Grid.Row="1" Grid.Column="0" Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center" />
                                 <Label Grid.Row="1" Grid.Column="1" Text="{Binding UserNameLastAcquired}" HorizontalOptions="Center" VerticalOptions="Center" />
                                 <Button Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsAvailable}" BackgroundColor="#00455F" TextColor="White" Text="Take" Clicked="OnTakeClick" CommandParameter="{Binding .}" />
-                                <Button Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsTaken}" BackgroundColor="#FF5A5A" TextColor="Black" Text="Release" Clicked="OnReleaseClick" CommandParameter="{Binding .}" />
+                                <Button Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsTaken}" BackgroundColor="{StaticResource Secondary}}"  TextColor="Black" Text="Release" Clicked="OnReleaseClick" CommandParameter="{Binding .}" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
