@@ -18,4 +18,5 @@ A tool to make taking a server simpler and easier. Currently we use a teams chan
 
 # Run:
 1. Run backend solution wuphf\BackEnd\Wuphf.Backend.sln
-2. Run frontend solution (need VS2022) wuphf\FrontEnd\Wuphf.sln
+2. Seed the servers wuphf\BackEnd\Wuphf.Data\server.sql
+3. Run frontend solution (need VS2022) wuphf\FrontEnd\Wuphf.sln
