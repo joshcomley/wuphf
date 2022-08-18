@@ -25,12 +25,14 @@ public class ServersController : ODataControllerBase<Server>
     {
         var server = await Db.Servers.SingleAsync(_ => _.Id == key);
         var userName = (string)parameters["userName"];
+        var byUserName = (string)parameters["byUserName"];
         var now = DateTimeOffset.UtcNow;
         var auditLog = new AuditLog
         {
             ServerId = key,
             FromUserName = server.UserNameLastAcquired,
             ToUserName = userName,
+            ByUserName = byUserName,
             DateCreated = now
         };
         await Db.AuditLogs.AddAsync(auditLog);

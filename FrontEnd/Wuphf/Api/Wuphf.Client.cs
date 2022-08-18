@@ -1261,6 +1261,9 @@ namespace Wuphf.Api.Client
         [System.ComponentModel.DataAnnotations.Range(-2147483648, 2147483647)]
         public int ServerId { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("ByUserName", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ByUserName { get; set; }
+
         [Newtonsoft.Json.JsonProperty("FromUserName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FromUserName { get; set; }
 
@@ -1464,23 +1467,29 @@ namespace Wuphf.Api.Client
         [System.Runtime.Serialization.EnumMember(Value = @"ServerId desc")]
         ServerId_desc = 3,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"ByUserName")]
+        ByUserName = 4,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ByUserName desc")]
+        ByUserName_desc = 5,
+
         [System.Runtime.Serialization.EnumMember(Value = @"FromUserName")]
-        FromUserName = 4,
+        FromUserName = 6,
 
         [System.Runtime.Serialization.EnumMember(Value = @"FromUserName desc")]
-        FromUserName_desc = 5,
+        FromUserName_desc = 7,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ToUserName")]
-        ToUserName = 6,
+        ToUserName = 8,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ToUserName desc")]
-        ToUserName_desc = 7,
+        ToUserName_desc = 9,
 
         [System.Runtime.Serialization.EnumMember(Value = @"DateCreated")]
-        DateCreated = 8,
+        DateCreated = 10,
 
         [System.Runtime.Serialization.EnumMember(Value = @"DateCreated desc")]
-        DateCreated_desc = 9,
+        DateCreated_desc = 11,
 
     }
 
@@ -1494,17 +1503,20 @@ namespace Wuphf.Api.Client
         [System.Runtime.Serialization.EnumMember(Value = @"ServerId")]
         ServerId = 1,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"ByUserName")]
+        ByUserName = 2,
+
         [System.Runtime.Serialization.EnumMember(Value = @"FromUserName")]
-        FromUserName = 2,
+        FromUserName = 3,
 
         [System.Runtime.Serialization.EnumMember(Value = @"ToUserName")]
-        ToUserName = 3,
+        ToUserName = 4,
 
         [System.Runtime.Serialization.EnumMember(Value = @"DateCreated")]
-        DateCreated = 4,
+        DateCreated = 5,
 
         [System.Runtime.Serialization.EnumMember(Value = @"Server")]
-        Server = 5,
+        Server = 6,
 
     }
 
@@ -1526,6 +1538,9 @@ namespace Wuphf.Api.Client
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserName { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("byUserName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ByUserName { get; set; }
+
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
         [Newtonsoft.Json.JsonExtensionData]
@@ -1542,6 +1557,9 @@ namespace Wuphf.Api.Client
     {
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserName { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("byUserName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ByUserName { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -1560,6 +1578,9 @@ namespace Wuphf.Api.Client
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserName { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("byUserName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ByUserName { get; set; }
+
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
         [Newtonsoft.Json.JsonExtensionData]
@@ -1576,6 +1597,9 @@ namespace Wuphf.Api.Client
     {
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserName { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("byUserName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ByUserName { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 

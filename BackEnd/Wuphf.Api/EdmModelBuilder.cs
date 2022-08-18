@@ -12,10 +12,12 @@ public class EdmModelBuilder
         var builder = new ODataConventionModelBuilder();
         builder.EntitySet<Server>("Servers");
         builder.EntitySet<AuditLog>("AuditLogs");
-        builder.EntityType<Server>()
-            .Action(nameof(ServersController.Take))
-            .Parameter<string>("userName")
-            ;
+        var actionConfiguration = builder.EntityType<Server>()
+            .Action(nameof(ServersController.Take));
+        actionConfiguration
+            .Parameter<string>("userName");
+        actionConfiguration
+            .Parameter<string>("byUserName");
         return builder.GetEdmModel();
     }
 }

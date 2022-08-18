@@ -9,6 +9,7 @@ namespace Wuphf.Data.Models
         public int Id { get; set; }
         public int ServerId { get; set; }
         public Server Server { get; set; } = null!;
+        public string ByUserName { get; set; }
         public string? FromUserName { get; set; }
         public string? ToUserName { get; set; }
         public DateTimeOffset DateCreated { get; set; }

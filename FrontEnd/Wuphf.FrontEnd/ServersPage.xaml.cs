@@ -89,6 +89,7 @@ public partial class ServersPage : ContentPage
                 var api = new WuphfApi(new HttpClient());
                 await api.Servers_Server_TakeAsync(server.Id, new Body
                 {
+                    ByUserName = Settings.UserName,
                     UserName = Settings.UserName
                 });
             });
@@ -106,11 +107,14 @@ public partial class ServersPage : ContentPage
 
         if (canContinue)
         {
+#pragma warning disable CS4014
             Task.Run(async () =>
+#pragma warning restore CS4014
             {
                 var api = new WuphfApi(new HttpClient());
                 await api.Servers_Server_TakeAsync(server.Id, new Body
                 {
+                    ByUserName = Settings.UserName,
                     UserName = ""
                 });
             });
