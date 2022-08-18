@@ -37,6 +37,7 @@ public static class MauiProgram
 
         var services = builder.Services;
         services.AddSingleton<IServerNotifications, ServerNotifications>();
+        services.AddSingleton<ISettings, Settings>();
 #if WINDOWS
         services.AddSingleton<ITrayService, WinUI.TrayService>();
         services.AddSingleton<INotificationService, WinUI.NotificationService>();
