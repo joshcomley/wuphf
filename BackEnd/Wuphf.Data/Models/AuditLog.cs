@@ -4,15 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Wuphf.Data.Models
 {
-    [Table("Servers")]
-    public class Server
+    [Table("AuditLogs")]
+    public  class AuditLog
     {
         public int Id { get; set; }
+        public int ServerId { get; set; }
         [MaxLength(50)]
-        public string ServerName { get; set; }
+        public string From { get; set; }
         [MaxLength(50)]
-        public string? Username { get; set; }
-        public DateTimeOffset? LastAcquired { get; set; }
+        public string To { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
     }
 }
-
