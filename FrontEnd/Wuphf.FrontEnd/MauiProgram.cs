@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.LifecycleEvents;
 using WeatherTwentyOne.Services;
+using Wuphf.Services;
 
 
 namespace Wuphf;
@@ -35,6 +36,7 @@ public static class MauiProgram
         });
 
         var services = builder.Services;
+        services.AddSingleton<IServerNotifications, ServerNotifications>();
 #if WINDOWS
         services.AddSingleton<ITrayService, WinUI.TrayService>();
         services.AddSingleton<INotificationService, WinUI.NotificationService>();
