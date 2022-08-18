@@ -22,6 +22,11 @@ public partial class AuditLog : ContentPage
             this.Update();
         });
     }
+
+    public async void OnServerClick(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }
 
 public class AuditLogViewModel

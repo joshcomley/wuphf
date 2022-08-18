@@ -4,6 +4,7 @@
              x:Class="Wuphf.AuditLog"
              Title="Audit">
     <VerticalStackLayout>
+        <Button Text="Servers" Clicked="OnServerClick" BackgroundColor="#FF5A5A" TextColor="Black" FontAttributes="Bold" />
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -16,7 +17,7 @@
             <BoxView Grid.Row="1" Grid.Column="0" Color="#00455F" />
             <BoxView Grid.Row="1" Grid.Column="1" Color="#00455F" />
             <BoxView Grid.Row="1" Grid.Column="2" Color="#00455F" />
-            <Label TextColor="White" Grid.Row="1" FontAttributes="Bold" Text="Server Name" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label TextColor="White"  Padding="10" Grid.Row="1" FontAttributes="Bold" Text="Server Name" HorizontalOptions="Center" VerticalOptions="Center" />
             <Label TextColor="White" Grid.Row="1" FontAttributes="Bold" Grid.Column="1" Text="Date Taken" HorizontalOptions="Center" VerticalOptions="Center" />
             <Label TextColor="White" Grid.Row="1" FontAttributes="Bold" Grid.Column="2" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
