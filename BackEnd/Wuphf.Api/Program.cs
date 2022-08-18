@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.OData;
+using Microsoft.EntityFrameworkCore;
 using Wuphf.Api;
 using Wuphf.Api.OpenApi;
+using Wuphf.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,7 @@ builder.Services.AddControllers().AddOData(
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<AppDbContext>(_ => _.UseSqlServer(builder.Configuration.GetConnectionString("DbContext")));
 
 var app = builder.Build();
 
@@ -38,5 +41,7 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
+
+await app.Services.GetRequiredService<AppDbContext>().Database.MigrateAsync();
 
 app.Run();
