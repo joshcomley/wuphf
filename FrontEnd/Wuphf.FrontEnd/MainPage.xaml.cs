@@ -15,7 +15,10 @@ public partial class MainPage : ContentPage
 
     private async void OnCounterClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ServersPage());
+        var client = new Api.Client.WuphfApi(new HttpClient());
+        var servers = await client.Servers_Server_ListServerAsync(3, null, search: null, filter: null, null, orderby: null, select: null, expand: null);
+
+        //await Navigation.PushAsync(new ServersPage());
 		//count++;
 
 		//if (count == 1)
