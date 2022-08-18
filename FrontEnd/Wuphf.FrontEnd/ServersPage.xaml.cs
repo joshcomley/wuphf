@@ -30,7 +30,6 @@ public partial class ServersPage : ContentPage
             }
 
             Model.Servers = Model.Servers.ToList();
-            this.Update();
         });
     }
 
@@ -56,7 +55,6 @@ public partial class ServersPage : ContentPage
         var api = new WuphfApi(new HttpClient());
         var servers = (await api.Servers_Server_ListServerAsync(null, null, null, $"contains(Name,'{model.ServerSearch}')", null, null, null, null)).Value;
         model.Servers = servers.ToList();
-        this.Update();
     }
 
     public ISettings Settings => ServiceProvider.GetService<ISettings>();
