@@ -4,6 +4,19 @@
              x:Class="Wuphf.AuditLog"
              Title="Audit">
     <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="1" Text="Server Name" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="1" Text="Date Taken" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="2" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
         <ListView ItemsSource="{Binding AuditLogs}">
             <ListView.ItemTemplate>
                 <DataTemplate>
