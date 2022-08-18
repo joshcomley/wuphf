@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls;
 using Wuphf.Api.Client;
 using Wuphf.Services;
 
@@ -51,7 +52,14 @@ public partial class ServersPage : ContentPage
         });
     }
 
-    private void OnServerClick(object sender, EventArgs e)
+    public ISettings Settings => ServiceProvider.GetService<ISettings>();
+
+    private void UserNameChanged(object sender, TextChangedEventArgs e)
+    {
+        Settings.UserName = e.NewTextValue;
+    }
+
+    private void OnTakeClick(object sender, EventArgs e)
     {
         var server = (sender as Button).CommandParameter as Server;
         if (string.IsNullOrWhiteSpace(Settings.UserName))
@@ -71,11 +79,17 @@ public partial class ServersPage : ContentPage
         }
     }
 
-    public ISettings Settings => ServiceProvider.GetService<ISettings>();
-
-    private void UserNameChanged(object sender, TextChangedEventArgs e)
+    private void OnReleaseClick(object sender, EventArgs e)
     {
-        Settings.UserName = e.NewTextValue;
+        var server = (sender as Button).CommandParameter as Server;
+        Task.Run(async () =>
+        {
+            var api = new WuphfApi(new HttpClient());
+            await api.Servers_Server_TakeAsync(server.Id, new Body
+            {
+                UserName = null
+            });
+        });
     }
 }
 
