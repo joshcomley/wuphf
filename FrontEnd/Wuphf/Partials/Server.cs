@@ -22,7 +22,8 @@ namespace Wuphf.Api.Client
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var server = value as Server;
-            return !server.IsAvailable && server.UserNameLastAcquired.Equals(UserName) ? "#76E109" : "White";
+            
+            return !server.IsAvailable && server.UserNameLastAcquired.Equals(UserName) ? Color.FromArgb("#2276E109") : null;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
