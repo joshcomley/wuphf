@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls;
 using Wuphf.Api.Client;
 using Wuphf.Services;
 
@@ -9,7 +10,10 @@ public partial class ServersPage : ContentPage
     public ServersPage()
     {
         InitializeComponent();
-        BindingContext = new ServersViewModel();
+        BindingContext = new ServersViewModel
+        {
+            UserName = ServiceProvider.GetService<ISettings>().UserName
+        };
         ServerNotifications = ServiceProvider.GetService<IServerNotifications>();
         ServerNotifications.OnUpdate(_ =>
         {
@@ -48,7 +52,34 @@ public partial class ServersPage : ContentPage
         });
     }
 
-    private void OnServerClick(object sender, EventArgs e)
+    public ISettings Settings => ServiceProvider.GetService<ISettings>();
+
+    private void UserNameChanged(object sender, TextChangedEventArgs e)
+    {
+        Settings.UserName = e.NewTextValue;
+    }
+
+    private void OnTakeClick(object sender, EventArgs e)
+    {
+        var server = (sender as Button).CommandParameter as Server;
+        if (string.IsNullOrWhiteSpace(Settings.UserName))
+        {
+            DisplayAlert("Uh oh", "Please enter your name, first", "Fiiine");
+        }
+        else
+        {
+            Task.Run(async () =>
+            {
+                var api = new WuphfApi(new HttpClient());
+                await api.Servers_Server_TakeAsync(server.Id, new Body
+                {
+                    UserName = Settings.UserName
+                });
+            });
+        }
+    }
+
+    private void OnReleaseClick(object sender, EventArgs e)
     {
         var server = (sender as Button).CommandParameter as Server;
         Task.Run(async () =>
@@ -56,14 +87,14 @@ public partial class ServersPage : ContentPage
             var api = new WuphfApi(new HttpClient());
             await api.Servers_Server_TakeAsync(server.Id, new Body
             {
-                UserName = "Josh"
+                UserName = ""
             });
         });
-
     }
 }
 
 public class ServersViewModel
 {
+    public string UserName { get; set; }
     public List<Server> Servers { get; set; }
 }
