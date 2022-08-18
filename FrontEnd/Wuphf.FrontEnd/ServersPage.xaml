@@ -9,16 +9,18 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />-->
         <Button Text="Audit" Clicked="OnAuditClick" />
-        <Grid>
+        <Grid StyleClass="table-header">
             <Grid.RowDefinitions>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="1" Text="Server Name" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label Grid.Row="1" Grid.Column="1" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="1" Text="Taken" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Grid.Row="1" Grid.Column="2" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
         <ListView ItemsSource="{Binding Servers}">
             <ListView.ItemTemplate>
@@ -31,9 +33,11 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="1" Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center" />
-                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding UserNameLastAcquired}" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Switch Grid.Row="1" Grid.Column="1" OnColor="Green" ThumbColor="Grey" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding UserNameLastAcquired}" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
