@@ -10,6 +10,7 @@ public class EdmModelBuilder
     {
         var builder = new ODataConventionModelBuilder();
         builder.EntitySet<Server>("Servers");
+        builder.EntitySet<AuditLog>("AuditLogs");
         return builder.GetEdmModel();
     }
 }
