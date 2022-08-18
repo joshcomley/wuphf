@@ -4,7 +4,7 @@
              x:Class="Wuphf.AuditLog"
              Title="Audit">
     <VerticalStackLayout>
-        <Button Text="Servers" Clicked="OnServerClick" BackgroundColor="#FF5A5A" TextColor="Black" FontAttributes="Bold" />
+        <Button Text="Servers" Clicked="OnServerClick" TextColor="Black" FontAttributes="Bold" />
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
