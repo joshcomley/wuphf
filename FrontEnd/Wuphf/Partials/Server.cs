@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Wuphf.Api.Client
 {
@@ -7,7 +6,6 @@ namespace Wuphf.Api.Client
     {
         public bool IsTaken => !IsAvailable;
         public bool IsAvailable => string.IsNullOrEmpty(UserNameLastAcquired);
-        public string BgColor => !IsAvailable && UserNameLastAcquired.Equals("Aliya") ? "#76E109" : "White";
         public Server Self => this;
     }
 
