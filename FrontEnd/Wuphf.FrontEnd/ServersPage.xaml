@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Wuphf.ServersPage"
-             Title="ServersPage">
+             Title="Servers">
     <VerticalStackLayout>
         <!--<Label 
             Text="Welcome to .NET MAUI!"
@@ -17,9 +17,12 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition />    
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <BoxView Grid.Row="1" Grid.Column="0" Color="SteelBlue" />
+            <BoxView Grid.Row="1" Grid.Column="1" Color="SteelBlue" />
+            <BoxView Grid.Row="1" Grid.Column="2" Color="SteelBlue" />
             <Label Grid.Row="1" Grid.Column="0" Text="Server" HorizontalOptions="Center" VerticalOptions="Center" />
             <Label Grid.Row="1" Grid.Column="1" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
