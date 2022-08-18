@@ -3,44 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Wuphf.AuditLog"
              Title="Audit">
-    <VerticalStackLayout>
-        <Button Text="Servers" Clicked="OnServerClick" BackgroundColor="#FF5A5A" TextColor="Black" FontAttributes="Bold" />
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <BoxView Grid.Row="1" Grid.Column="0" Color="#00455F" />
-            <BoxView Grid.Row="1" Grid.Column="1" Color="#00455F" />
-            <BoxView Grid.Row="1" Grid.Column="2" Color="#00455F" />
-            <Label TextColor="White"  Padding="10" Grid.Row="1" FontAttributes="Bold" Text="Server Name" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label TextColor="White" Grid.Row="1" FontAttributes="Bold" Grid.Column="1" Text="Date Taken" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label TextColor="White" Grid.Row="1" FontAttributes="Bold" Grid.Column="2" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
-        </Grid>
-        <ListView ItemsSource="{Binding AuditLogs}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Row="1" Text="{Binding Server.Name}" HorizontalOptions="Center" VerticalOptions="Center" />
-                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding DateCreated, StringFormat='{0:dd/MM/yyyy HH:mm:ss}'}" HorizontalOptions="Center" VerticalOptions="Center" />
-                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding ToUserValue}" HorizontalOptions="Center" VerticalOptions="Center" />
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </VerticalStackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0">
+            <Button Text="Servers" Clicked="OnServerClick" BackgroundColor="#FF5A5A" TextColor="Black" FontAttributes="Bold" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <BoxView Grid.Row="1" Grid.Column="0" Color="#00455F" />
+                <BoxView Grid.Row="1" Grid.Column="1" Color="#00455F" />
+                <BoxView Grid.Row="1" Grid.Column="2" Color="#00455F" />
+                <Label TextColor="White"  Padding="10" Grid.Row="1" FontAttributes="Bold" Text="Server Name" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label TextColor="White" Grid.Row="1" FontAttributes="Bold" Grid.Column="1" Text="Date Taken" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label TextColor="White" Grid.Row="1" FontAttributes="Bold" Grid.Column="2" Text="Taken By" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Grid>
+            <ListView ItemsSource="{Binding AuditLogs}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="1" Text="{Binding Server.Name}" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DateCreated, StringFormat='{0:dd/MM/yyyy HH:mm:ss}'}" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding ToUserValue}" HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
 </ContentPage>
