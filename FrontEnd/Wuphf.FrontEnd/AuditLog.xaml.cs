@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Wuphf.Api.Client;
@@ -6,7 +5,7 @@ using Wuphf.Api.Client;
 namespace Wuphf;
 
 public partial class AuditLog : ContentPage
-{
+{   
     public AuditLogViewModel Model => BindingContext as AuditLogViewModel;
     public AuditLog()
 	{
