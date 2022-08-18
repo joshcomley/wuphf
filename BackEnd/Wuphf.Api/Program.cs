@@ -42,6 +42,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 
-await app.Services.GetRequiredService<AppDbContext>().Database.MigrateAsync();
+using var scope = app.Services.CreateScope();
+await scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.MigrateAsync();
 
 app.Run();
