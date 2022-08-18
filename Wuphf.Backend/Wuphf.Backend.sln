@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wuphf.Api", "Wuphf.Api\Wuphf.Api.csproj", "{53F727D8-DE28-451C-AF86-67B5F36CFE13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wuphf.Data", "Wuphf.Data\Wuphf.Data.csproj", "{7B48BD51-7DF6-44DC-9872-A0C4E609B2B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53F727D8-DE28-451C-AF86-67B5F36CFE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F727D8-DE28-451C-AF86-67B5F36CFE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F727D8-DE28-451C-AF86-67B5F36CFE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F727D8-DE28-451C-AF86-67B5F36CFE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B48BD51-7DF6-44DC-9872-A0C4E609B2B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B48BD51-7DF6-44DC-9872-A0C4E609B2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B48BD51-7DF6-44DC-9872-A0C4E609B2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B48BD51-7DF6-44DC-9872-A0C4E609B2B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5726C6DF-B33C-464A-9F52-3C7F69ACC1E7}
+	EndGlobalSection
+EndGlobal
