@@ -9,6 +9,12 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />-->
         <Button Text="Audit" Clicked="OnAuditClick" />
+        <TableView>
+            <TableSection>
+                <EntryCell Label="User" Placeholder="User Name (within 50 Characters)"></EntryCell>
+                <EntryCell Label="Search Server" Placeholder="Server Name"></EntryCell>
+            </TableSection>
+        </TableView>
         <Grid StyleClass="table-header">
             <Grid.RowDefinitions>
                 <RowDefinition />
